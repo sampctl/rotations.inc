@@ -24,9 +24,14 @@
  // Right to left - absoulte Rotation (active)
  // Left to right - relative Rotation (passive)
  
-#if !defined _inc_a_samp
-    #error Cant be compiled without a_samp
+#if defined _inc_rotations
+    #undef _inc_rotations
 #endif
+
+#if defined _INC_rotations
+    #endinput
+#endif
+#define _INC_rotations
 
 // Reference
 // https://en.wikipedia.org/wiki/Euler_Angles#Rotation_matrix
@@ -578,7 +583,7 @@ stock GetQuatFromAxisAngle(Float: angle, Float: aX, Float: aY, Float: aZ, & Floa
     w = floatcos(angle, degrees);
 }
 
-stock GetEulerFromMatrix(Float: matrix[4][4], & Float: rX, & Float: rY, & Float: rZ, eulermode: mode = euler_samp) {
+stock GetEulerFromMatrix(const Float: matrix[4][4], & Float: rX, & Float: rY, & Float: rZ, eulermode: mode = euler_samp) {
     switch(mode) {
         case euler_xzx: {
             rY = matrix[0][0];
