@@ -33,6 +33,8 @@
 #endif
 #define _INC_rotations
 
+#include <a_samp>
+
 // Reference
 // https://en.wikipedia.org/wiki/Euler_Angles#Rotation_matrix
 // https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation
